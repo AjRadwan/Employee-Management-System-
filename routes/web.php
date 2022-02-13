@@ -12,7 +12,11 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('admin', [AdminController::class, 'index']);
+Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::post('admin/login', [AdminController::class, 'store'])->name('admin.store');
+Route::get('admin/logout', [AdminController::class, 'logout']);
+
 
 Route::get('/', function () {
     return view('welcome');
