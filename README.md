@@ -11,7 +11,7 @@
 ----------------------
 ## Technologies
 ---------
-Laravel 9
-Bootstrap 5
-Jquery 3
-DataTable 1.10
+ - Laravel 9
+ - Bootstrap 5
+ - Jquery 3
+ - DataTable 1.10
