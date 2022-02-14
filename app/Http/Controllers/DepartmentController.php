@@ -25,7 +25,7 @@ class DepartmentController extends Controller{
         $dep = New Department();
         $dep->title = $title;
         $dep->save();
-        return redirect()->back()->with('message', "Title Created Successfully");
+        return redirect()->back()->with('success-msg', "Title Created Successfully");
 
     }
 
