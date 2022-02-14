@@ -18,7 +18,15 @@ class DepartmentController extends Controller{
 
     
     public function store(Request $request){
-        //
+        $request->validate([
+            'title' => 'required | unique:departments',
+        ]);
+        $title = $request->input('title');
+        $dep = New Department();
+        $dep->title = $title;
+        $dep->save();
+        return redirect()->back()->with('message', "Title Created Successfully");
+
     }
 
     

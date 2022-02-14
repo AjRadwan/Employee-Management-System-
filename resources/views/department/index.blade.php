@@ -19,12 +19,10 @@ Department DataTable
  
 <tbody>
    @foreach ($departments as $dep)
-       
- 
     <tr>
         <td>{{$loop->iteration}}</td>
         <td>{{$dep->title}}</td>
-        <td>   {{$dep->created_at->diffForhumans()}}</td>
+        <td>{{$dep->created_at->diffForhumans()}}</td>
     </tr>
     @endforeach
 </tbody>
