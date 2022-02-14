@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 class DepartmentController extends Controller{
     
     public function index(){
-        //
+        return view('department.index');
     }
 
      
     public function create(){
-        //
+        return view('department.create');
     }
 
     
@@ -22,12 +22,12 @@ class DepartmentController extends Controller{
 
     
     public function show($id){
-        //
+       return view('department.show');
     }
 
      
     public function edit($id){
-        //
+      return view('department.edit');
     }
 
     

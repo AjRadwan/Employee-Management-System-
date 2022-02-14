@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DepartmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,10 @@ Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'store'])->name('admin.store');
 Route::get('admin/logout', [AdminController::class, 'logout']);
+
+
+//DepartmentController
+Route::resource('department', DepartmentController::class);
 
 
 Route::get('/', function () {

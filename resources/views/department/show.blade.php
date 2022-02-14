@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-    Dashboard index
+    dep shows
 @endsection
