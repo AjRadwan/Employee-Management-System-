@@ -30,22 +30,30 @@ class DepartmentController extends Controller{
     }
 
     
-    public function show($id){
+    public function show(Department $department){
        return view('department.show');
     }
 
      
-    public function edit($id){
-      return view('department.edit');
+    public function edit(Department $department){
+    return view('department.edit', compact('department'));
     }
 
     
-    public function update(Request $request, $id){
-        //
+    public function update(Request $request, Department $department){
+        $request->validate([
+            'title' => 'required | unique:departments',
+        ]);
+        $title = $request->input('title');
+        $department->title = $title;
+        $department->save();
+        return redirect()->back()->with('success-msg', "Title Updated Successfully");
     }
 
     
-    public function destroy($id){
-        //
+    public function destroy(Department $department){
+        $department->delete();
+        return redirect()->back()->with('success-msg', "Title Deleted Successfully");
+
     }
 }

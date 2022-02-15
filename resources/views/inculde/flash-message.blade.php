@@ -13,3 +13,11 @@
    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
  </div>  
 @endif 
+
+
+@if (session()->has('error-msg'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+   <strong>{{session('error-msg')}} </strong> 
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+ </div>  
+@endif 
