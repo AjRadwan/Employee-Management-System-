@@ -1,21 +1,22 @@
 @extends('layout')
-@section('title', 'All Data')
+@section('title', 'All Employee')
 @section('content')
 <div class="card mb-4 my-5">
 <div class="card-header">
     @include('inculde.flash-message')
 <i class="fas fa-table me-1"></i> 
-Department DataTable  
-<a href="{{route('department.create')}}" class="btn btn-primary float-end">Add New</a>
+Employee DataTable  
+<a href="{{route('employee.create')}}" class="btn btn-primary float-end">Add New</a>
 </div>
 <div class="card-body">
 <table id="datatablesSimple" class="table table-bordered">
 <thead>
     <tr>
         <th>#</th>
-        <th>Department</th>
+        <th>Employee</th>
         <th>Name</th>
         <th>Address</th>
+        <th>Time</th>
       <th>Action</th>
     </tr>
 </thead>
