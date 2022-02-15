@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\EmployeeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,11 @@ Route::get('admin/logout', [AdminController::class, 'logout']);
 
 //DepartmentController
 Route::resource('department', DepartmentController::class);
+
+
+//EmployeeController
+Route::resource('employee', EmployeeController::class);
+ 
 
 
 Route::get('/', function () {
