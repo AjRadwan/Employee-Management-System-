@@ -22,6 +22,7 @@ class DepartmentController extends Controller{
             'title' => 'required | unique:departments',
         ]);
         $title = $request->input('title');
+        
         $dep = New Department();
         $dep->title = $title;
         $dep->save();

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->string('name');
-            $table->string('image');
+            $table->string('imagePath');
             $table->string('address');
             $table->text('mobile');
             $table->string('status')->default(0);

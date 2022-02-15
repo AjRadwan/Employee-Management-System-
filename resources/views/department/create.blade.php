@@ -15,8 +15,7 @@ Add Data
 <div class="card-body">
     <form action="{{route('department.store')}}" method="POST">
         @csrf
-        
-        <div class="mb-3">
+       <div class="mb-3">
             <label  class="form-label">Title</label>
             @error('title')
             <strong class="text-danger"> {{ $message }}</strong>

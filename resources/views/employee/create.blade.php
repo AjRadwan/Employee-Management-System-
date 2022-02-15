@@ -4,15 +4,14 @@
 @section('content')
  
 <div class="card mb-4 my-5">
+  @include('inculde.flash-message')
 <div class="card-header">
-@include('inculde.flash-message')
-
 <i class="fas fa-table me-1"></i>
 Add Employee
 <a href="{{route('employee.index')}}" class="btn btn-primary float-end">View All</a>
 </div>
 <div class="card-body">
-    <form action="{{route('employee.store')}}" method="POST" eenctype="multipart/form-data">
+    <form action="{{route('employee.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
     <div class="mb-3">
         <label  class="form-label">name</label>
@@ -21,26 +20,28 @@ Add Employee
         @enderror
         <input type="name" class="form-control"  placeholder="name@example.com" name="name">
       </div>
+      <div class="mb-3">
+        <label  class="form-label">Image</label>
+        @error('image')
+        <strong class="text-danger"> {{ $message }}</strong>
+       @enderror
+        <input type="file" class="form-control"  placeholder="image@example.com" name="image">
+      </div>
     <div class="mb-3">
         <label  class="form-label">Department</label>
         @error('department')
         <strong class="text-danger"> {{ $message }}</strong>
         @enderror
-       <select name="department" class="form-control">
+
+
+       <select name="department_id" class="form-control">
           <option value="">--Select Department--</option>
-   @foreach ($departments as $department)
+       @foreach ($departments as $department)
        <option value="{{$department->id}}">{{$department->title}}</option>
          @endforeach
    </select>
-
-      </div>
-        <div class="mb-3">
-            <label  class="form-label">Image</label>
-            @error('image')
-            <strong class="text-danger"> {{ $message }}</strong>
-           @enderror
-            <input type="file" class="form-control"  placeholder="image@example.com" name="image">
-          </div>
+   </div>
+        
         <div class="mb-3">
             <label  class="form-label">Address</label>
             @error('address')

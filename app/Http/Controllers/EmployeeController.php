@@ -33,12 +33,12 @@ class EmployeeController extends Controller{
 
         $name = $request->input('name');
         $department_id = $request->input('department_id');
+     // File Upload
+      $imagePath = 'storage/' . $request->file('image')->store('EmployeeImages', 'public');
+
         $mobile = $request->input('mobile');
         $address = $request->input('address');
         $status = $request->input('status');
-
-        // File Upload
-        $imagePath = 'storage/' . $request->file('image')->store('EmployeeImages', 'public');
 
        $employee = new Employee();
        $employee->name = $name;
@@ -48,7 +48,7 @@ class EmployeeController extends Controller{
        $employee->address = $address;
        $employee->status = $status;
        $employee->save();
-       return redirect()->back()->with('message', "Employee Added Successfully");
+       return redirect()->back()->with('success-msg', "Employee Added Successfully");
 //return redirect()->route('index')->with('message', "Employee AddedSuccessFully!");
     }
 
