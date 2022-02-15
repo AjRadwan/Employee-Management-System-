@@ -13,23 +13,28 @@ Department DataTable
 <thead>
     <tr>
         <th>#</th>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Action</th>
+        <th>Department</th>
+        <th>Name</th>
+        <th>Address</th>
+      <th>Action</th>
     </tr>
 </thead>
  
 <tbody>
-   @foreach ($departments as $dep)
+   @foreach ($employees as $employee)
     <tr>
         <td>{{$loop->iteration}}</td>
-        <td>{{$dep->title}}</td>
-        <td>{{$dep->created_at->diffForhumans()}}</td>
+        {{-- geeting department title from department --}}
+        <td>{{$employee->department->title}}</td>
+        <td>{{$employee->name}}</td>
+         <td>{{$employee->address}}</td>
+         <td>{{$employee->created_at->diffForhumans()}}</td>
         <td>
      
-<a href="{{route('employee.edit', $dep)}}" class="btn btn-primary">Edit</a>
+<a href="{{route('employee.edit', $employee)}}" class="btn btn-primary">Edit</a>
+<a href="{{route('employee.show', $employee)}}" class="btn btn-warning">Show</a>
  
-<form action="{{route('employee.destroy', $dep)}}" method="post" class="btn btn-danger">
+<form action="{{route('employee.destroy', $employee)}}" method="post" class="btn btn-danger">
     @csrf
     @method('delete')
     <input type="submit" value="Delete">

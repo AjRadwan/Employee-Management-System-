@@ -14,7 +14,6 @@ Add Employee
 <div class="card-body">
     <form action="{{route('employee.store')}}" method="POST">
         @csrf
-        
         <div class="mb-3">
             <label  class="form-label">Title</label>
             @error('title')
