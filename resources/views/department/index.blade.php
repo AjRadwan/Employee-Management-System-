@@ -32,7 +32,7 @@ Department DataTable
 <form action="{{route('department.destroy', $dep)}}" method="post" class="btn btn-danger">
     @csrf
     @method('delete')
-      <input type="submit" value="Delete">
+    <input type="submit" value="Delete">
   </form>
   
     </tr>
