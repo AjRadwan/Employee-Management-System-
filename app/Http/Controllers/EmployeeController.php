@@ -65,7 +65,36 @@ class EmployeeController extends Controller{
 
    
     public function update(Request $request, Employee $employee){
-        //
+        $request->validate([
+            'name' => 'required',
+             'address' => 'required',
+            'department_id' => 'required',
+            'mobile' => 'required',
+            'status' => 'required',
+            
+        ]);
+
+   if($request->hasFile('image')){
+        $imagePath = 'storage/' . $request->file('image')->store('EmployeeImages', 'public');
+
+    }else{
+        $imagePath = $request->previous_image;
+    }
+
+        $name = $request->input('name');
+        $department_id = $request->input('department_id');
+        $mobile = $request->input('mobile');
+        $address = $request->input('address');
+        $status = $request->input('status');
+        
+       $employee->name = $name;
+       $employee->department_id = $department_id;
+       $employee->imagePath = $imagePath;
+       $employee->mobile = $mobile;
+       $employee->address = $address;
+       $employee->status = $status;
+       $employee->save();
+       return redirect()->back()->with('success-msg', "Employee Updated Successfully");
     }
 
   

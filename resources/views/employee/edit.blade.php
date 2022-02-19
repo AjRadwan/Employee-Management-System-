@@ -24,12 +24,13 @@ Update Data
   </div>
   <div class="mb-3">
     <label  class="form-label">Image</label>
-    @error('image')
-    <strong class="text-danger"> {{ $message }}</strong>
-   @enderror
+  
     <input type="file" class="form-control"  placeholder="image@example.com" name="image" >
     <p>
       <img src="{{asset($employee->imagePath)}}" alt="Image" width="300px"/>
+
+      {{-- geeting previous_image if user do not want to change the image --}}
+     <input type="hidden" name="previous_image" value="{{$employee->imagePath}}">
     </p>
   </div>
 <div class="mb-3">
