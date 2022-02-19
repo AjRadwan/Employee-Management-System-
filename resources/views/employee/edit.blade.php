@@ -27,7 +27,10 @@ Update Data
     @error('image')
     <strong class="text-danger"> {{ $message }}</strong>
    @enderror
-    <input type="file" class="form-control"  placeholder="image@example.com" name="image">
+    <input type="file" class="form-control"  placeholder="image@example.com" name="image" >
+    <p>
+      <img src="{{asset($employee->imagePath)}}" alt="Image" width="300px"/>
+    </p>
   </div>
 <div class="mb-3">
     <label  class="form-label">Department</label>
@@ -36,7 +39,9 @@ Update Data
     @enderror
 
 
-   <select name="department_id" class="form-control">
+
+
+<select name="department_id" class="form-control">
       <option  value="">--Select Department--</option>
       @foreach ($department as $dep)
       <option @if ($dep->id == $employee->department_id) selected @endif
@@ -44,21 +49,10 @@ Update Data
       value="{{$dep->id}}">{{$dep->title}}</option>
         @endforeach
 </select>
-   {{-- <select name="department_id" class="form-control">
-      <option  value="">--Select Department--</option>
-      @foreach ($department as $dep)
-      <option @if ($dep->id == ) selected @endif
-   
-      value="{{$dep->id}}">{{$dep->title}}</option>
-        @endforeach
-</select> --}}
-
- 
-
-
- 
-</div>
     
+ 
+
+</div>
     <div class="mb-3">
         <label  class="form-label">Address</label>
         @error('address')
@@ -74,12 +68,15 @@ Update Data
         <input type="mobile" class="form-control" value="{{$employee->mobile}}"name="mobile">
       </div>
 
-    <div class="mb-3">
-        <label  class="form-label">Status</label> <br>
-        <input type="radio"   name="status" value="1"> Activate <br>
-        <input type="radio" checked="checked"   name="status" value="0"> Deactivate
-      </div>
-       <button type="submit" class="btn btn-primary" value="Submit">Submit</button>    
+<div class="mb-3">
+    <label  class="form-label">Status</label> <br>
+
+    <input @if($employee->status == 1) checked @endif type="radio" name="status" value="1" /> Activate <br>
+
+    <input @if($employee->status == 0) checked @endif type="radio" name="status" value="0" /> Deactivate
+
+  </div>
+    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>    
    </form>
 </div>
 </div>

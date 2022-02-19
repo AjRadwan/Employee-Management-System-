@@ -59,8 +59,8 @@ Add Employee
 
         <div class="mb-3">
             <label  class="form-label">Status</label> <br>
-            <input type="radio"   name="status" value="1"> Activate <br>
-            <input type="radio" checked="checked"   name="status" value="0"> Deactivate
+            <input type="radio"   name="status" value="1" /> Activate <br>
+            <input type="radio" checked="checked"  name="status" value="0" /> Deactivate
           </div>
            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>    
        </form>
