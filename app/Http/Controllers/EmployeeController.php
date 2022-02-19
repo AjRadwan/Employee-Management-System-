@@ -54,7 +54,8 @@ class EmployeeController extends Controller{
 
   
     public function show(Employee $employee){
-        //
+        $department = Department::all();
+        return view('employee.show', compact('employee', 'department'));
     }
 
   
@@ -78,6 +79,7 @@ class EmployeeController extends Controller{
         $imagePath = 'storage/' . $request->file('image')->store('EmployeeImages', 'public');
 
     }else{
+ // geeting previous_image if user do not wish to change the image 
         $imagePath = $request->previous_image;
     }
 
@@ -86,7 +88,7 @@ class EmployeeController extends Controller{
         $mobile = $request->input('mobile');
         $address = $request->input('address');
         $status = $request->input('status');
-        
+
        $employee->name = $name;
        $employee->department_id = $department_id;
        $employee->imagePath = $imagePath;
@@ -99,6 +101,7 @@ class EmployeeController extends Controller{
 
   
     public function destroy(Employee $employee){
-        //
+       $employee->delete();
+       return redirect()->back()->with('success-msg', "Data Deleted Successfully");
     }
 }
