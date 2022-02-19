@@ -59,7 +59,8 @@ class EmployeeController extends Controller{
 
   
     public function edit(Employee $employee){
-        //
+        $department = Department::all();
+       return view('employee.edit', compact('employee', 'department'));
     }
 
    

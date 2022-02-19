@@ -16,6 +16,7 @@ Employee DataTable
         <th>Employee</th>
         <th>Name</th>
         <th>Address</th>
+        <th>Image</th>
         <th>Time</th>
       <th>Action</th>
     </tr>
@@ -29,6 +30,7 @@ Employee DataTable
         <td>{{$employee->department->title}}</td>
         <td>{{$employee->name}}</td>
          <td>{{$employee->address}}</td>
+         <td><img src="{{asset($employee->imagePath)}}" alt="Image" width="100px"/></td>
          <td>{{$employee->created_at->diffForhumans()}}</td>
         <td>
      
