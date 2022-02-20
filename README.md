@@ -16,7 +16,7 @@
  - Jquery 3
  - DataTable 1.10
 
-
+----------------------
 
  ![alt text](img/ss-1.png)
  ![alt text](img/ss-2.png)
