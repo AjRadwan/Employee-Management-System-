@@ -14,7 +14,7 @@ use App\Http\Controllers\EmployeeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'store'])->name('admin.store');
 Route::get('admin/logout', [AdminController::class, 'logout']);
@@ -29,6 +29,4 @@ Route::resource('employee', EmployeeController::class);
  
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
