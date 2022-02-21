@@ -19,11 +19,7 @@
 <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     
 <!-- Navbar-->
- 
- 
 <li><a  class="btn btn-primary" href="{{route('admin.logout')}}">Logout</a></li>
- 
- 
  
 </nav>
 <div id="layoutSidenav">
@@ -37,12 +33,16 @@
     Dashboard
 </a>
 <div class="sb-sidenav-menu-heading">Interface</div>
+
+
 {{-- department --}}
 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
     Department
     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 </a>
+
+
 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
         <a class="nav-link" href="{{route('department.index')}}">View All</a>
@@ -65,10 +65,8 @@
     </nav>
 </div>
 {{-- End Employee --}}
-
- 
- 
 </nav>
+
 </div>
 <div id="layoutSidenav_content">
     <main>
@@ -77,12 +75,11 @@
     </main>
      
 </div>
+
 </div>
 <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('js/scripts.js')}}"></script>
 <script src="{{asset('https://cdn.jsdelivr.net/npm/simple-datatables@latest')}}"></script>
 <script src="{{asset('js/datatables-simple-demo.js')}}"></script>
-
-
 </body>
 </html>

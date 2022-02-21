@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\RegistrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,16 +17,17 @@ use App\Http\Controllers\EmployeeController;
 */
 
 
-Route::prefix('admin')->group(function () {
+
+
+Route::prefix('admin')->group(function (){
     Route::get('/',      [AdminController::class, 'index'])->name('admin.index');
     Route::get('login', [AdminController::class, 'login'])->name('admin.login');
-    Route::post('login', [AdminController::class, 'store'])->name('admin.store');
+    Route::post('login', [AdminController::class, 'store'])->name('admin.store'); 
     Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
 
 //DepartmentController
 Route::resource('department', DepartmentController::class);
-
 //EmployeeController
 Route::resource('employee', EmployeeController::class);
  
