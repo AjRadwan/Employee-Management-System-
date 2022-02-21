@@ -14,15 +14,17 @@ use App\Http\Controllers\EmployeeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
-Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
-Route::post('admin/login', [AdminController::class, 'store'])->name('admin.store');
-Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
+
+Route::prefix('admin')->group(function () {
+    Route::get('/',      [AdminController::class, 'index'])->name('admin.index');
+    Route::get('login', [AdminController::class, 'login'])->name('admin.login');
+    Route::post('login', [AdminController::class, 'store'])->name('admin.store');
+    Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
+});
 
 //DepartmentController
 Route::resource('department', DepartmentController::class);
-
 
 //EmployeeController
 Route::resource('employee', EmployeeController::class);
